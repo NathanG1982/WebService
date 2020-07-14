@@ -21,26 +21,6 @@ namespace Service.Controllers
         }
 
         /// <summary>
-        /// Calculate in more specific way (Optional)
-        /// </summary>
-        /// <param name="request"></param>
-        /// <returns></returns>
-        [HttpPost("sum")]
-        public IActionResult Sum([FromBody] CalculatorSumRequest request)
-        {
-            try
-            {
-                var result = _calculator.Sum(request.Numbers);
-                return Ok(result);
-            }
-            catch (Exception e)
-            {
-                _logger.LogError(e, "Failed to calculate sum of numbers");
-                return new StatusCodeResult(StatusCodes.Status500InternalServerError);
-            }
-        }
-
-        /// <summary>
         /// Calculate by operand
         /// </summary>
         /// <param name="request">Request data</param>

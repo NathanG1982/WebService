@@ -17,14 +17,10 @@ export class AppComponent implements OnInit {
 
   public calc(operand: string, ...numbers: number[]): void {
     switch (operand) {
-      // For demo proses shows implicit using sum function
       case '+':
-        this.calculator.sum(numbers).subscribe(v => this.result = v);
-        break;
       case '-':
       case '*':
       case '/':
-        // Other cases will go to generic calc service
         this.calculator.calc(operand, numbers).subscribe(v => this.result = v);
         break;
       default:

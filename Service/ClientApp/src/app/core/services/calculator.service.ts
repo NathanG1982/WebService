@@ -16,16 +16,6 @@ export class CalculatorService {
     this._url = `${environment.api}/calculator`;
   }
 
-  public sum(numbers: number[]): Observable<number> {
-    const headers: HttpHeaders = new HttpHeaders();
-
-    headers.append('Content-Type', "application/json");
-
-    return this.http.post<number>(`${this._url}/sum`, {numbers: numbers}, {
-      headers: headers
-    });
-  }
-
   public calc(operand: string, numbers: number[]): Observable<number> {
     const headers: HttpHeaders = new HttpHeaders();
 
