@@ -1,0 +1,17 @@
+<div class='container-fluid'>
+  <div class='row'>
+    <div class='col-md-12'>
+      <input #firstOperator type="number" style="width: 150px;"/>
+      <select #operand>
+        <option *ngFor="let i of ['+', '-', '*', '/']">{{i}}</option>
+      </select>
+      <input #secondOperator type="number" style="width: 150px;"/>
+      <span>=</span>
+      <input disabled style="min-width: 20px; text-align: center;" [ngModel]="result"/>
+      <button (click)="calc(operand.value, ++firstOperator.value, ++secondOperator.value)" style="width: 150px">Calculate</button>
+    </div>
+    <div class='col-sm-9 body-content'>
+      <router-outlet></router-outlet>
+    </div>
+  </div>
+</div>
